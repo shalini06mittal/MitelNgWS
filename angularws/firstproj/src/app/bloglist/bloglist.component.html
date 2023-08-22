@@ -1,0 +1,57 @@
+<!-- structural directives -->
+<div class ="mt-3">
+<!-- <div *ngIf="blogs.length > 0">
+    <h3>List Of blogs</h3>
+    {{blogs}}
+</div>
+<div *ngIf="blogs.length == 0">
+    <h3>No Blogs added Yet!!</h3>
+</div> -->
+<!-- template local reference variable-->
+<div *ngIf="blogs.length > 0; else none">
+    <h3>List Of blogs</h3>
+    <!-- pipe and json is the pipename => JSON.stringify(blogs)-->
+    <!-- {{blogs | json}} -->
+    <!-- <ul>
+        <li *ngFor="let blog of blogs">{{blog.title}}</li>
+    </ul>
+    <ul *ngFor="let blog of blogs">
+        <li>{{blog.title}}</li>
+    </ul> -->
+    <div *ngFor="let b of blogs">
+        <div appBlog category={{b.category}}> 
+            <app-blog [blog]="b" [message]="'Some message'"></app-blog>
+        </div>
+            <!-- 
+                component communication
+                data always passes from parent to child
+                parent gives input data to child
+                pass every blog object to the blog component -->
+                <!-- <div ngSwitch="{{b.category}}">
+                    <div *ngSwitchCase="'Tourism'" [style.background-color]="'brown'">
+                        <app-blog [blog]="b" [message]="'Some message'"></app-blog>
+                    </div>
+                    <div *ngSwitchCase="'Beaches'" [style.background-color]="'skyblue'">
+                        <app-blog [blog]="b" [message]="'Some message'"></app-blog>
+                    </div>
+                    <div *ngSwitchCase="'Technology'" [style.background-color]="'black'">
+                        <app-blog [blog]="b" [message]="'Some message'"></app-blog>
+                    </div>
+                    <div *ngSwitchDefault [style.background-color]="'green'">
+                        <app-blog [blog]="b" [message]="'Some message'"></app-blog>
+                    </div>
+                </div> -->
+                
+    </div>
+    <!-- <div *ngFor="let blog of blogs">
+            <img  src={{blog.imgurl}}/>
+            <p>{{blog.category}}</p>
+            <p>{{blog.title}}</p>
+            <p>{{blog.content}}</p>
+            <span >{{blog.created | date}}</span>
+    </div> -->
+</div>
+<ng-template #none>
+    <h3>No Blogs added Yet!!</h3>
+</ng-template>
+</div>

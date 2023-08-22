@@ -1,0 +1,46 @@
+<!-- <app-footer></app-footer> -->
+<app-header></app-header>
+<h1>Welcome</h1>
+<!-- string interpolation  one-way data binding {{}} [] -->
+<p>{{title}}</p>
+<p>{{getData()}}</p>
+<p>{{2+2}}</p>
+<!-- event handlers ()-->
+<input type="text" value={{title}} 
+(input)="changeText($event)"/><br/>
+<!-- 2-way data binding syntax is [()] directive
+    host element
+-->
+<input type="text" id="demo" [(ngModel)]="title"/><br/>
+<!-- <input type="text" [value]="title" 
+(keyup)="changeText()"/><br/> -->
+<h3>Inline Style binding</h3>
+<button [style.color]="btncolor"  (click)="clicked()">CLICK ME</button>
+<p [style.color]="isValid ? 'yellow' : 'blue'">Color with condition</p>
+<p [ngStyle] = "{'color':btncolor, 'background-color':bg1}">Multiple styles</p>
+
+<!-- class binding-->
+
+<h3>Class binding</h3>
+<div [class]="div1">DIV colored BY property in .ts file</div>
+<hr/>
+<div [class.main]="isValid">Main style if isValid true</div>
+<hr/>
+<div [ngClass]="[div1,'m']">Multiple classes using ngClass</div>
+<div [ngClass]="messages">Style by messages</div>
+<!-- <button [style.color]="btncolor" (click)="clicked()">CLICK ME</button>
+<p [style.color]="isValid ? 'yellow' : 'blue'">Color with condition</p>
+<p [ngStyle] = "{'color':btncolor, 'background-color':bg1}">Multiple styles</p> -->
+
+<div>
+    <p>Is Valid : {{isValid}}</p>
+    <p><input type="checkbox" required [(ngModel)]="isValid"/></p>
+</div>
+<h2 [innerText]="title"></h2>
+<!-- disabled => normal html attribute -->
+<button  disabled>CLICK</button><br/>
+<button (click)="clicked()" disabled={{isValid}}>SUBMIT</button><br/>
+<!-- disabled an angular directive -->
+<button (click)="clicked()" [disabled]="!isValid">SUBMIT</button>
+
+
