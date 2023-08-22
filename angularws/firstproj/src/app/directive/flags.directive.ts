@@ -7,6 +7,10 @@ export class FlagsDirective implements OnInit, OnChanges{
 
   @HostBinding("src")
   imgSrc:string='';
+  
+  @HostBinding("alt")
+  alt:string='';
+
   @Input()
   country:string='';
   // called only once the lifecycle
@@ -19,6 +23,7 @@ export class FlagsDirective implements OnInit, OnChanges{
   // called whenever the value of Input property changes
   ngOnChanges(changes: SimpleChanges): void {
     this.imgSrc=`../../assets/images/${this.country}`
+    this.alt = this.country.substring(0,this.country.indexOf('.'))
   }
-  
+
 }

@@ -27,7 +27,11 @@ export class AppComponent implements OnInit{
 
   country ='uk.jpeg'
 
+  constructor(){
+    console.log('App constructor')
+  }
   ngOnInit(): void {
+    console.log('App init')
       document.title = 'HEY'
   }
 

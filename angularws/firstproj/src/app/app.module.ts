@@ -14,7 +14,9 @@ import { ExpoPipe } from './pipe/expo.pipe';
 import { DirectiveComponent } from './directive/directive.component';
 import { HoverDirective } from './directive/hover.directive';
 import { BlogDirective } from './directive/blog.directive';
-import { FlagsDirective } from './directive/flags.directive'; 
+import { FlagsDirective } from './directive/flags.directive';
+import { ParentComponent } from './lifecycle/parent.component';
+import { ChildComponent } from './lifecycle/child.component'; 
 // the second parameter 'fr' is optional 
 registerLocaleData(localeFr, 'fr');
 // decorators => meta data about the class
@@ -30,7 +32,9 @@ registerLocaleData(localeFr, 'fr');
     DirectiveComponent,
     HoverDirective,
     BlogDirective,
-    FlagsDirective
+    FlagsDirective,
+    ParentComponent,
+    ChildComponent
   ],
   imports: [
     BrowserModule, FormsModule

@@ -1,18 +1,20 @@
 <div class="container m-5">
-    {{country}}
+    <!-- {{country}}
     <select [(ngModel)]="country">
         <option default>Select</option>
         <option value="india.jpeg">India</option>
         <option value="usa.png">USA</option>
         <option value="uk.jpeg">UK</option>
         <option value="singapore.png">Singapore</option>
-    </select>
-    <div>
+    </select> -->
+    <!-- <div> -->
         <!-- dynamically binding the src attribute to the country value-->
-        <img src="../../assets/images/india.jpeg" appFlags 
+        <!-- <img src="../../assets/images/india.jpeg" appFlags 
+        alt="India"
         [country]="country"/>
-    </div>
-    <app-bloglist></app-bloglist>
+    </div> -->
+    <app-parent></app-parent>
+    <!-- <app-bloglist></app-bloglist> -->
     <!-- <app-pipe></app-pipe> -->
     <!-- <app-directive></app-directive> -->
 </div>
