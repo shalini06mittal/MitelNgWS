@@ -8,20 +8,19 @@ import { Blog } from '../model/Blogs';
   styleUrls: ['./bloglist.component.css']
 })
 export class BloglistComponent implements OnInit, OnChanges{
-
   blogs:Blog[]
 
   @Input()
   newBlog:Blog | undefined
-
-  // to do some basic initialization
-  constructor(){
-    this.blogs=[]
-  }
   ngOnChanges(changes: SimpleChanges): void {
     if(this.newBlog)
       this.blogs.unshift(this.newBlog);
   }
+  // to do some basic initialization
+  constructor(){
+    this.blogs=[]
+  }
+ 
 // comples ==x or long running code
   ngOnInit(): void {
       // RESt API

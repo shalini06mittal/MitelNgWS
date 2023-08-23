@@ -14,8 +14,15 @@
         [country]="country"/>
     </div> -->
     <!-- <app-parent></app-parent> -->
-    <app-blogform (blogCreated)="addBlog($event)"></app-blogform>
-    <app-bloglist [newBlog]="newBlog"></app-bloglist>
+    <!-- <app-blogform (blogCreated)="addBlog($event)"></app-blogform>
+    <app-bloglist [newBlog]="newBlog"></app-bloglist> -->
+    <p><input type="checkbox" required [(ngModel)]="isValid"/></p>
+    <app-header></app-header>
+    <app-header></app-header>
+    <div *ngIf="isValid">
+    <app-servdemo></app-servdemo>
+</div>
+
     <!-- <app-pipe></app-pipe> -->
     <!-- <app-directive></app-directive> -->
 </div>

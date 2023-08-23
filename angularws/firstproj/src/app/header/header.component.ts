@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DemoService } from '../service/demo.service';
 
 @Component({
   selector: 'app-header',
@@ -7,5 +8,9 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 // BL
-  header:string='MITEL'
+  header:string='MITEL TRAINING'
+  constructor(){//public service : DemoService){
+    console.log('header constructor')
+
+  }
 }

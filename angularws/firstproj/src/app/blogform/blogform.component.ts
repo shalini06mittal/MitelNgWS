@@ -28,6 +28,6 @@ export class BlogformComponent {
     console.log(blogform.status)
     console.log(blogform.value)
     this.blogCreated.emit(blogform.value)
-    blogform.value={}
+    // blogform.value={}
   }
 }
