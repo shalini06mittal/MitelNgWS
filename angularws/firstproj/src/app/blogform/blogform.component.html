@@ -6,42 +6,98 @@
     2) Reactive driven forms
 -->
 <!-- ngForm is a special directive that gains access to the form object-->
-<p>Value : {{blogform.value | json}}</p>
+<!-- <p>Value : {{blogform.value | json}}</p>
 <p>Status : {{blogform.status | json}}</p>
-<p>Blog title : {{blog.title}}</p>
+<p>Blog title : {{blog.title}}</p> -->
 <!-- {{blogform.controls | json}} -->
-<form #blogform="ngForm">
-    <div>
+<form #blogform="ngForm" (submit)="saveBlog(blogform)">
+    <div class="mb-3">
         <input type="text" name="title" placeholder="Enter title" 
          #title ="ngModel" ngModel class="form-control" pattern="^[A-Za-z\s]+$"
-         [class.is-invalid]="title.invalid && title.touched"
-        required />
-        <!-- <p>{{title.className}}</p> -->
-        <!-- <p>{{title.value}}</p> -->
-        <div>
+         [class.is-invalid]="title.invalid && title.touched" required />
             <div  *ngIf="title.touched">
                 <div *ngIf="title.invalid && title.errors">
                     <span class="text-danger" *ngIf="title.errors['required']">Title required</span>
                     <span class="text-danger" *ngIf="title.errors['pattern']">Title can contain only characters</span>
                 </div>
             </div>
-        <!-- <span class="text-danger" *ngIf="title.invalid && title.touched">Title required</span> -->
+
     </div>
+    <div class="mb-3">
+        <input type="text" name="content" placeholder="Enter Content" ngModel
+        required minlength="15" #content="ngModel" class="form-control" 
+        [class.is-invalid]="content.invalid && content.touched"/>
+        <!-- <p>{{content.className}}</p> -->
+       <!-- <p>{{content.value}}</p> -->
+       <div  *ngIf="content.touched">
+           <div *ngIf="content.invalid && content.errors">
+               <span class="text-danger">Content required</span>
+               <!-- <span class="text-danger" *ngIf="content.errors['required']">Content required</span>
+               <span class="text-danger" *ngIf="content.errors['minlength']">Length min 15 characters</span> -->
+           </div>
+       </div>
+    </div>
+    <div class="mb-3">
+        <input type="text" class="form-control" [class.is-invalid]="category.invalid && category.touched" minlength="5"
+            required placeholder="enter category" #category="ngModel" ngModel name="category" />
+        <!-- <span>{{ename.className}}</span> -->
+        <div *ngIf="category.touched">
+            <div *ngIf="category.errors && (category.invalid)">
+                <small class="text-danger" *ngIf="category.errors['required']">
+                    category required </small>
+            </div>
+        </div>
+    </div>
+    <div ngModelGroup="feedback">
+        <div class="mb-3">
+            <input type="number" min="1" max="5"
+             class="form-control" placeholder="enter rating" #rating="ngModel" ngModel
+             name="rating" />
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" placeholder="enter comments"
+            required
+            #comments="ngModel" ngModel name="comments" />
+        </div>
+    </div>
+    <div class="mb-3">
+        <button type="submit">Add Blog</button>
+    </div>
+</form>
+
+
+<!-- <form #blogform="ngForm">
+    <div>
+        <input type="text" name="title" placeholder="Enter title" 
+         #title ="ngModel" ngModel class="form-control" pattern="^[A-Za-z\s]+$"
+         [class.is-invalid]="title.invalid && title.touched"
+        required /> -->
+        <!-- <p>{{title.className}}</p> -->
+        <!-- <p>{{title.value}}</p> -->
+        <!-- <div>
+            <div  *ngIf="title.touched">
+                <div *ngIf="title.invalid && title.errors">
+                    <span class="text-danger" *ngIf="title.errors['required']">Title required</span>
+                    <span class="text-danger" *ngIf="title.errors['pattern']">Title can contain only characters</span>
+                </div>
+            </div> -->
+        <!-- <span class="text-danger" *ngIf="title.invalid && title.touched">Title required</span> -->
+    <!-- </div>
     </div>
     <div>
         <input type="text" name="content" placeholder="Enter Content" ngModel
          required minlength="15" #content="ngModel" class="form-control" 
-         [class.is-invalid]="content.invalid && content.touched"/>
+         [class.is-invalid]="content.invalid && content.touched"/> -->
          <!-- <p>{{content.className}}</p> -->
         <!-- <p>{{content.value}}</p> -->
-        <div  *ngIf="content.touched">
+        <!-- <div  *ngIf="content.touched">
             <div *ngIf="content.invalid && content.errors">
-                <span class="text-danger">Content required</span>
+                <span class="text-danger">Content required</span> -->
                 <!-- <span class="text-danger" *ngIf="content.errors['required']">Content required</span>
                 <span class="text-danger" *ngIf="content.errors['minlength']">Length min 15 characters</span> -->
-            </div>
+            <!-- </div>
         </div>
         
     </div>
-</form>
+</form> -->
 

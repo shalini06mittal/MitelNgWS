@@ -4,5 +4,6 @@ export interface Blog{
     content?:string;
     created?:Date;
     category?:string;
-    imgurl?:string
+    imgurl?:string;
+    feedback?:{rating?:number, comments?:string}
 }
