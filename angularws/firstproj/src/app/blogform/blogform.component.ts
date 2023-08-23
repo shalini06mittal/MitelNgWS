@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Blog } from '../model/Blogs';
+import { errrormessages } from '../model/Errors';
 
 @Component({
   selector: 'app-blogform',
@@ -9,6 +10,10 @@ import { Blog } from '../model/Blogs';
 export class BlogformComponent {
 
   blog:Blog ;
+  errors = errrormessages;
+  @Output()
+  blogCreated:EventEmitter<Blog> = new EventEmitter();
+
   constructor(){
     this.blog = {title:''}
   }
@@ -22,5 +27,7 @@ export class BlogformComponent {
     }
     console.log(blogform.status)
     console.log(blogform.value)
+    this.blogCreated.emit(blogform.value)
+    blogform.value={}
   }
 }

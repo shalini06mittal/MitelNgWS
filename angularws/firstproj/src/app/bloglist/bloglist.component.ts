@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Blog } from '../model/Blogs';
 
 
@@ -7,12 +7,20 @@ import { Blog } from '../model/Blogs';
   templateUrl: './bloglist.component.html',
   styleUrls: ['./bloglist.component.css']
 })
-export class BloglistComponent implements OnInit{
+export class BloglistComponent implements OnInit, OnChanges{
 
   blogs:Blog[]
+
+  @Input()
+  newBlog:Blog | undefined
+
   // to do some basic initialization
   constructor(){
     this.blogs=[]
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    if(this.newBlog)
+      this.blogs.unshift(this.newBlog);
   }
 // comples ==x or long running code
   ngOnInit(): void {

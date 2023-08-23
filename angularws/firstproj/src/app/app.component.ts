@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Blog } from './model/Blogs';
 // directive => BL + UI
 @Component({
   selector: 'app-root',
@@ -48,5 +49,13 @@ export class AppComponent implements OnInit{
     console.log(event)
     console.log('change text', event.target.value)
     this.title = event.target.value
+  }
+// app.compponent.ts
+  newBlog:Blog | undefined
+  addBlog(newBlog:any){
+    alert('new blog')
+    console.log('added new blog in app')
+    console.log(newBlog)
+    this.newBlog = newBlog
   }
 }
