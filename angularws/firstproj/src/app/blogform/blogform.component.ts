@@ -12,13 +12,15 @@ export class BlogformComponent {
   constructor(){
     this.blog = {title:''}
   }
-  saveBlog(blog:any){
-    if(blog.status === 'INVALID')
+  saveBlog(blogform:any){
+    console.log(this.blog)
+    console.log(blogform)
+    if(blogform.status === 'INVALID')
     {
       alert('Please enter details')
       return;
     }
-    console.log(blog.status)
-    console.log(blog.value)
+    console.log(blogform.status)
+    console.log(blogform.value)
   }
 }
