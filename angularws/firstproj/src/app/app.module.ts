@@ -16,7 +16,9 @@ import { HoverDirective } from './directive/hover.directive';
 import { BlogDirective } from './directive/blog.directive';
 import { FlagsDirective } from './directive/flags.directive';
 import { ParentComponent } from './lifecycle/parent.component';
-import { ChildComponent } from './lifecycle/child.component'; 
+import { ChildComponent } from './lifecycle/child.component';
+import { GchildComponent } from './lifecycle/gchild.component';
+import { BlogformComponent } from './blogform/blogform.component'; 
 // the second parameter 'fr' is optional 
 registerLocaleData(localeFr, 'fr');
 // decorators => meta data about the class
@@ -34,7 +36,9 @@ registerLocaleData(localeFr, 'fr');
     BlogDirective,
     FlagsDirective,
     ParentComponent,
-    ChildComponent
+    ChildComponent,
+    GchildComponent,
+    BlogformComponent
   ],
   imports: [
     BrowserModule, FormsModule

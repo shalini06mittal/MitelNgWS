@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParentComponent implements OnInit {
 
+  show:boolean = false
   pcountry:string='india'
   employee = {name:'Shalini'}
   constructor()

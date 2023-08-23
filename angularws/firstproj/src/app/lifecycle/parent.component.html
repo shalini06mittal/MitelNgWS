@@ -6,10 +6,13 @@
         <option value="uk">UK</option>
         <option value="ireland">Ireland</option>
     </select>
+    <input type="checkbox" [(ngModel)]="show"/>
     <h4>{{employee | json}}</h4>
+    <div *ngIf="show">
     <p>
         <input type="text" [(ngModel)]="employee.name"
          placeholder="Enter employee name"/></p>
         <app-child [country]="pcountry" 
         [employee]="employee"></app-child>
+    </div>
 </div>

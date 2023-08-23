@@ -1,0 +1,47 @@
+<h2>Post A Blog</h2>
+<!--
+
+    2 ways 
+    1) template driven forms => FormsModule(app.module.ts)
+    2) Reactive driven forms
+-->
+<!-- ngForm is a special directive that gains access to the form object-->
+<p>Value : {{blogform.value | json}}</p>
+<p>Status : {{blogform.status | json}}</p>
+<p>Blog title : {{blog.title}}</p>
+<!-- {{blogform.controls | json}} -->
+<form #blogform="ngForm">
+    <div>
+        <input type="text" name="title" placeholder="Enter title" 
+         #title ="ngModel" ngModel class="form-control" pattern="^[A-Za-z\s]+$"
+         [class.is-invalid]="title.invalid && title.touched"
+        required />
+        <!-- <p>{{title.className}}</p> -->
+        <!-- <p>{{title.value}}</p> -->
+        <div>
+            <div  *ngIf="title.touched">
+                <div *ngIf="title.invalid && title.errors">
+                    <span class="text-danger" *ngIf="title.errors['required']">Title required</span>
+                    <span class="text-danger" *ngIf="title.errors['pattern']">Title can contain only characters</span>
+                </div>
+            </div>
+        <!-- <span class="text-danger" *ngIf="title.invalid && title.touched">Title required</span> -->
+    </div>
+    </div>
+    <div>
+        <input type="text" name="content" placeholder="Enter Content" ngModel
+         required minlength="15" #content="ngModel" class="form-control" 
+         [class.is-invalid]="content.invalid && content.touched"/>
+         <!-- <p>{{content.className}}</p> -->
+        <!-- <p>{{content.value}}</p> -->
+        <div  *ngIf="content.touched">
+            <div *ngIf="content.invalid && content.errors">
+                <span class="text-danger">Content required</span>
+                <!-- <span class="text-danger" *ngIf="content.errors['required']">Content required</span>
+                <span class="text-danger" *ngIf="content.errors['minlength']">Length min 15 characters</span> -->
+            </div>
+        </div>
+        
+    </div>
+</form>
+
