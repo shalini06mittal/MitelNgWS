@@ -1,0 +1,8 @@
+<app-header></app-header>
+<div class="container">
+<button class="btn btn-primary" (click)="displayForm()">Add Blog</button>
+<div *ngIf="showform">
+    <app-blogform></app-blogform>
+</div>
+<app-bloglist></app-bloglist>
+</div>

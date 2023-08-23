@@ -1,0 +1,12 @@
+<div class="row m-2 p-4">
+    <div class="col-md-5">
+        <img class="img-fluid" src={{blog?.imgurl}}/>
+    </div>
+    <div class="col-md-7">
+        <p class="badge bg-warning">{{blog?.category}}</p>
+        <p>{{blog?.title}}</p>
+        <p>{{blog?.content}}</p>
+        <span class="badge bg-primary">{{blog?.created | date}}</span>
+    </div>
+</div>
+
