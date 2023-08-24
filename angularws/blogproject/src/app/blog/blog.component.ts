@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Blog } from '../model/Blogs';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
@@ -9,9 +10,12 @@ export class BlogComponent{
   @Input()
   blog:Blog | undefined
  
-  constructor(){
+  constructor(private router:Router){
    
   }
-
+  details(id:number | undefined){
+    //alert(id)
+    this.router.navigate(['/blogs', id])
+  }
 
 }

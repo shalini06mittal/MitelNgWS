@@ -13,6 +13,7 @@ import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     RegisterComponent,
     HeaderComponent,
     PagenotfoundComponent,
+    ProfileComponent,
     
   ],
   imports: [

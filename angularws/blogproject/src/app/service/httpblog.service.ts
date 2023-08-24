@@ -26,6 +26,7 @@ export class HttpblogService {
         let blogs:Blog[]=[]
         data.map(blog=> {
           blog.title += " !!"
+          blog.content = blog.content?.substring(0,50)
           blogs.push( blog);
         })
         return blogs
@@ -46,5 +47,8 @@ export class HttpblogService {
   deleteBlog(id:number):Observable<Blog>{
     console.log('get blogs called')
     return this.http.delete<Blog>(`${this.url}/${id}`);
+  }
+  getBlogById(id:number){
+    return this.http.get<Blog>(`${this.url}/${id}`);
   }
 }
