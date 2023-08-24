@@ -12,6 +12,8 @@ import { RegisterComponent } from './register/register.component';
 import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +23,9 @@ import {HttpClientModule} from '@angular/common/http';
     BlogdetailsComponent,
     LoginComponent,
     RegisterComponent,
-    HeaderComponent
+    HeaderComponent,
+    PagenotfoundComponent,
+    
   ],
   imports: [
     BrowserModule,

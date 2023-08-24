@@ -5,5 +5,5 @@ export interface Blog{
     created?:Date;
     category?:string;
     imgurl?:string;
-    userid?:number;
+    userid:number;
 }

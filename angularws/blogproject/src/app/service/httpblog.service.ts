@@ -34,6 +34,9 @@ export class HttpblogService {
   }
   addBlogs(blog:Blog):Observable<Blog>{
     console.log('get blogs called')
+    let id = sessionStorage.getItem('id');
+    if(id)
+      blog.userid = parseInt(id);
     return this.http.post<Blog>(this.url, blog,{
       headers:{'Content-Type':'application/json'},
 

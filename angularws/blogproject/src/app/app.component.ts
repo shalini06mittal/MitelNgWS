@@ -1,7 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { getUsers, getusersWithDelay, getusersWithPromise } from './service/promises';
 import { HttpblogService } from './service/httpblog.service';
-
+/**
+ * user.service
+ * httpblog.service
+ * login => html, .ts
+ * header -> html, .ts
+ * app-routing-module
+ * blogfrom =>.ts
+ */
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

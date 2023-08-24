@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Blog } from '../model/Blogs';
+import { HttpblogService } from '../service/httpblog.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-blogform',
@@ -7,7 +9,7 @@ import { Blog } from '../model/Blogs';
   styleUrls: ['./blogform.component.css']
 })
 export class BlogformComponent {
-  constructor(){
+  constructor(private bs:HttpblogService, private router:Router){
   }
   saveBlog(blogform:any){
     console.log(blogform)
@@ -17,5 +19,8 @@ export class BlogformComponent {
       return;
     }
     //save blog
+    this.bs.addBlogs(blogform.value)
+    .subscribe(resp => this.router.navigate(['']))
+
   }
 }
