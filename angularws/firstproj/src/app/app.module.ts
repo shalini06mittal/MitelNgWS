@@ -21,9 +21,14 @@ import { GchildComponent } from './lifecycle/gchild.component';
 import { BlogformComponent } from './blogform/blogform.component';
 import { ServdemoComponent } from './servdemo/servdemo.component';
 import { ServchildComponent } from './servdemo/servchild.component'; 
+import { RouterModule, Routes } from '@angular/router';
 // the second parameter 'fr' is optional 
 registerLocaleData(localeFr, 'fr');
 // decorators => meta data about the class
+
+const routes: Routes = [];
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +50,7 @@ registerLocaleData(localeFr, 'fr');
     ServchildComponent
   ],
   imports: [
-    BrowserModule, FormsModule
+    BrowserModule, FormsModule, RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

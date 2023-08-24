@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, filter, map } from 'rxjs';
 import { Blog } from '../model/Blogs';
 /**
  * REST API call
@@ -16,15 +16,28 @@ import { Blog } from '../model/Blogs';
 export class HttpblogService {
 
   url:string = 'http://localhost:3000/blogs'
+
   constructor(private http:HttpClient) { }
   getBlogs():Observable<Blog[]>{
     console.log('get blogs called')
-    return this.http.get<Blog[]>(this.url);
+    return this.http.get<Blog[]>(this.url)
+    .pipe(
+      map((data:Blog[]) => {
+        let blogs:Blog[]=[]
+        data.map(blog=> {
+          blog.title += " !!"
+          blogs.push( blog);
+        })
+        return blogs
+    }))
+    ;
   }
   addBlogs(blog:Blog):Observable<Blog>{
     console.log('get blogs called')
     return this.http.post<Blog>(this.url, blog,{
-      headers:{'Content-Type':'application/json'}
+      headers:{'Content-Type':'application/json'},
+
+      
     });
   }
   deleteBlog(id:number):Observable<Blog>{

@@ -25,8 +25,9 @@ export class AppComponent implements OnInit{
       //       console.log(err)
       //      })
 
-      this.httpservice.getBlogs()
+      let obs = this.httpservice.getBlogs()
       .subscribe(data => console.log(data))
+      // //obs.unsubscribe()
 
       // this.httpservice.addBlogs({title:'new title', 
       //         content:'new content',
@@ -36,12 +37,14 @@ export class AppComponent implements OnInit{
       //         userid:2})
       //         .subscribe(data=> console.log(data))
 
-      // this.httpservice.deleteBlog(4).subscribe(data=> console.log(data))
-      
+      // this.httpservice.deleteBlog(4).subscribe({
+      //   next: data => console.log(data),
+      //   error: err=>  console.log('error', err)})
   }
 
   displayForm()
   {
     this.showform = !this.showform;
   }
+  
 }
