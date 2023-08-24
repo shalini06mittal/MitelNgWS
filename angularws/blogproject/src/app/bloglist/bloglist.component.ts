@@ -15,7 +15,7 @@ export class BloglistComponent implements OnInit, OnDestroy{
     this.blogs=[]
   }
   ngOnDestroy(): void {
-    console.log('destroy');
+    //console.log('destroy');
   }
  
 // comples ==x or long running code

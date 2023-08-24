@@ -32,8 +32,8 @@ export class AppComponent implements OnInit{
       //       console.log(err)
       //      })
 
-      let obs = this.httpservice.getBlogs()
-      .subscribe(data => console.log(data))
+      // let obs = this.httpservice.getBlogs()
+      // .subscribe(data => console.log(data))
       // //obs.unsubscribe()
 
       // this.httpservice.addBlogs({title:'new title', 

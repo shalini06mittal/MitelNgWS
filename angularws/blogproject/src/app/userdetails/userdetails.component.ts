@@ -14,7 +14,8 @@ export class UserdetailsComponent {
         console.log(param)
         this.userid = param['userid']
       })
-      this.route.parent?.params.subscribe(param=> console.log(param))
+      //this.route.parent?.params.subscribe(param=> console.log(param))
+      //this.route.queryParams.subscribe(param=>console.log(param))
   }
   // ngoninit => REST API call to get user details and display the info
 }

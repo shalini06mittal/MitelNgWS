@@ -31,6 +31,7 @@ export class BlogdetailsComponent implements OnInit{
   getUserDetails(userid:any){
     //this.router.navigate([`/blogs/${this.id}`, userid])
     this.router.navigate([`./`, userid],{relativeTo:this.route})
+    //this.router.navigate([`./`],{relativeTo:this.route, queryParams:{userid}})
   }
 
 }

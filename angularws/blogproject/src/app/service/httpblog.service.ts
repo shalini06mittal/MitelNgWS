@@ -19,7 +19,7 @@ export class HttpblogService {
 
   constructor(private http:HttpClient) { }
   getBlogs():Observable<Blog[]>{
-    console.log('get blogs called')
+    //console.log('get blogs called')
     return this.http.get<Blog[]>(this.url)
     .pipe(
       map((data:Blog[]) => {
@@ -34,7 +34,7 @@ export class HttpblogService {
     ;
   }
   addBlogs(blog:Blog):Observable<Blog>{
-    console.log('get blogs called')
+    //console.log('get blogs called')
     let id = sessionStorage.getItem('id');
     if(id)
       blog.userid = parseInt(id);
@@ -45,7 +45,7 @@ export class HttpblogService {
     });
   }
   deleteBlog(id:number):Observable<Blog>{
-    console.log('get blogs called')
+    //console.log('get blogs called')
     return this.http.delete<Blog>(`${this.url}/${id}`);
   }
   getBlogById(id:number){
