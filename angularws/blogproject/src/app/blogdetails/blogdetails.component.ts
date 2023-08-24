@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpblogService } from '../service/httpblog.service';
 import { Blog } from '../model/Blogs';
+import { UsersService } from '../service/users.service';
 
 @Component({
   selector: 'app-blogdetails',
@@ -12,8 +13,10 @@ export class BlogdetailsComponent implements OnInit{
 
   id:number = 0
   blog:Blog | undefined;
-  constructor(private route:ActivatedRoute, private bs:HttpblogService){
-    console.log(route)
+  constructor(private route:ActivatedRoute, private router : Router,
+    private bs:HttpblogService,
+    public us:UsersService){
+    // console.log(route)
     this.route.params.subscribe(param=> {
       console.log(param)
       this.id = parseInt(param['id'])
@@ -25,5 +28,9 @@ export class BlogdetailsComponent implements OnInit{
    .subscribe(blog=> this.blog = blog)
   }
 
+  getUserDetails(userid:any){
+    //this.router.navigate([`/blogs/${this.id}`, userid])
+    this.router.navigate([`./`, userid],{relativeTo:this.route})
+  }
 
 }

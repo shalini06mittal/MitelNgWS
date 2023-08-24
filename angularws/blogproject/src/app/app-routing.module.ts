@@ -7,13 +7,17 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { BlogformComponent } from './blogform/blogform.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BlogdetailsComponent } from './blogdetails/blogdetails.component';
+import { UserdetailsComponent } from './userdetails/userdetails.component';
 
 const routes: Routes = [
   //localhost:4200/
   // localhost:4200/blogs/1/comments
   {path:'', redirectTo:'blogs', pathMatch:'full'},
   {path:'blogs', component:BloglistComponent},
-  {path:'blogs/:id', component:BlogdetailsComponent},
+  {path:'blogs/:id', component:BlogdetailsComponent,
+    children:[
+      {path:':userid',component:UserdetailsComponent}
+    ]},
   {path:'Login', redirectTo:'login'},// localhost:4200/Login
   {path:'login', component:LoginComponent},
   {path:'register', component:RegisterComponent},
