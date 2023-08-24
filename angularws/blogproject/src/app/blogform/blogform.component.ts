@@ -10,7 +10,7 @@ import { UsersService } from '../service/users.service';
   styleUrls: ['./blogform.component.css']
 })
 export class BlogformComponent implements OnInit{
-  isSubmit:boolean = false;
+  isSubmit:boolean = true;
   constructor(private bs:HttpblogService, 
     private router:Router, private us:UsersService){
   }

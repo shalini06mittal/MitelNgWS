@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { Blog } from '../model/Blogs';
 import { HttpblogService } from '../service/httpblog.service';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-bloglist',
@@ -9,18 +10,21 @@ import { HttpblogService } from '../service/httpblog.service';
 })
 export class BloglistComponent implements OnInit, OnDestroy{
   blogs:Blog[];
-
+  subs:Subscription = new Subscription()
   // to do some basic initialization
   constructor(private blogservice:HttpblogService){
     this.blogs=[]
   }
   ngOnDestroy(): void {
-    //console.log('destroy');
+    console.log('destroy');
+    //unsubscribe
+    this.subs.unsubscribe()
+    
   }
  
 // comples ==x or long running code
   ngOnInit(): void {
-    this.blogservice.getBlogs()
-    .subscribe(data=> this.blogs = data)
+    let obs = this.blogservice.getBlogs()
+    this.subs= obs.subscribe(data=> this.blogs = data)
   }
 }
