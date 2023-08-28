@@ -13,6 +13,7 @@ export class BlogformComponent implements OnInit{
   isSubmit:boolean = true;
   constructor(private bs:HttpblogService, 
     private router:Router, private us:UsersService){
+      console.log('form constructor')
   }
 
   ngOnInit(): void {

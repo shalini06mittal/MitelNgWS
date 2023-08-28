@@ -24,7 +24,13 @@ const routes: Routes = [
   {path:'Login', redirectTo:'login'},// localhost:4200/Login
   {path:'login', component:LoginComponent},
   {path:'register', component:RegisterComponent},
-  {path:'create', component:BlogformComponent, canActivate:[authGuard], canDeactivate:[rerouteGuard]},
+  // {path:'create', component:BlogformComponent, 
+  // canActivate:[authGuard], canDeactivate:[rerouteGuard]},
+  { 
+    path :'create', 
+    loadChildren : () => import('./lazy-loading/lazy-loading.module')
+    .then(m => m.LazyLoadingModule)
+  },
   {path:'profile', component:ProfileComponent, canActivate:[authGuard]},
   {path:'**',component:PagenotfoundComponent}
 ];

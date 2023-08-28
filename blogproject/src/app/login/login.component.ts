@@ -21,6 +21,7 @@ export class LoginComponent {
       console.log('---------')
       console.log(resp)
       sessionStorage.setItem('email', user.email)
+      sessionStorage.setItem('token', resp.jwt)
       this.isError=false;
       this.router.navigate([''])
     },

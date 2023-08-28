@@ -38,7 +38,7 @@
     </div>
     <div class="mb-3">
         <input type="text" class="form-control" 
-        [class.is-invalid]="category.invalid && category.touched" minlength="5"
+        [class.is-invalid]="image.invalid && image.touched" minlength="5"
             required placeholder="enter image url" #image="ngModel" ngModel name="imgurl" />
         <div *ngIf="image.touched">
             <div *ngIf="image.errors && (image.invalid)">

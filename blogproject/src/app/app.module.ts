@@ -5,24 +5,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BloglistComponent } from './bloglist/bloglist.component';
 import { BlogComponent } from './blog/blog.component';
-import { BlogformComponent } from './blogform/blogform.component';
+// import { BlogformComponent } from './blogform/blogform.component';
 import { BlogdetailsComponent } from './blogdetails/blogdetails.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule} from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UserdetailsComponent } from './userdetails/userdetails.component';
-
+import { TokenInterceptor } from './service/token.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
     BloglistComponent,
     BlogComponent,
-    BlogformComponent,
+    // BlogformComponent,
     BlogdetailsComponent,
     LoginComponent,
     RegisterComponent,
@@ -30,13 +30,12 @@ import { UserdetailsComponent } from './userdetails/userdetails.component';
     PagenotfoundComponent,
     ProfileComponent,
     UserdetailsComponent,
-    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, FormsModule,HttpClientModule
   ],
-  providers: [],
+  providers: [{provide:HTTP_INTERCEPTORS, useClass:TokenInterceptor, multi:true}],
   bootstrap: [AppComponent],
   
 })

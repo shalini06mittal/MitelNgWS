@@ -12,7 +12,9 @@ export class HttpblogService {
 
   constructor(private http:HttpClient) { }
   getBlogs(email?:string):Observable<Blog[]>{
-   if(email === undefined)
+    console.log('get service', email)
+   if(email === undefined){
+    console.log('if')
     return this.http.get<Blog[]>(this.url)
     .pipe(
       map((data:Blog[]) => {
@@ -24,6 +26,7 @@ export class HttpblogService {
         })
         return blogs
     }));
+  }
     else{
       return this.http.get<Blog[]>(`${this.url}?email=${email}`)
     .pipe(
@@ -40,13 +43,10 @@ export class HttpblogService {
   }
   addBlogs(blog:Blog):Observable<Blog>{
     //console.log('get blogs called')
-    let id = sessionStorage.getItem('email');
-    if(id)
-      blog.email = id;
-    return this.http.post<Blog>(this.url, blog,{
+    let email = sessionStorage.getItem('email');
+    
+    return this.http.post<Blog>(`${this.url}?email=${email}`, blog,{
       headers:{'Content-Type':'application/json'},
-
-      
     });
   }
   deleteBlog(id:number):Observable<Blog>{
