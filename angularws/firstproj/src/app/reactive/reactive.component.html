@@ -1,0 +1,30 @@
+<h1>Reactive Form</h1>
+<!-- <p>{{name.status}}</p>
+<div>
+<input type="text" [formControl]="name"/>
+</div> -->
+<p>{{fgGroup.status}}</p>
+<form [formGroup]="fgGroup">
+    <div>
+       Name :  <input type="text" formControlName="username" />
+       <p>
+        <span>
+            <div *ngIf="username.errors">
+                <span class="text-danger">It is required</span>
+            </div>
+        </span>
+       </p>
+    </div>
+    <div>
+      Email :  <input type="text"   formControlName="email"/>
+    </div>
+    <div>
+      City:  <input type="text"  formControlName="city" />
+      <div *ngIf="fgGroup['controls']['city'].errors">
+        <span class="text-danger">It is required</span>
+    </div>
+    </div>
+    <div>
+        <input type="submit" />   </div>
+
+</form>

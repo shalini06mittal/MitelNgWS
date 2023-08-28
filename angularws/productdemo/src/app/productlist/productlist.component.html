@@ -1,0 +1,12 @@
+<h1>List of items</h1>
+
+<div *ngIf="products.length > 0; else empty">
+    <div *ngFor="let product of products">
+        <app-product [product]="product">
+            <button (click)="delProduct(product.id)">DELETE</button>
+        </app-product>
+    </div>
+</div>
+<ng-template #empty>
+    <p>No products yet</p>
+</ng-template>

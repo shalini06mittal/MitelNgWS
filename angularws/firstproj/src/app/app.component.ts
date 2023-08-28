@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Blog } from './model/Blogs';
 // directive => BL + UI
 @Component({
@@ -10,7 +10,8 @@ import { Blog } from './model/Blogs';
   // styles:[
   //   `h1{ color:yellow ; background-color:blue; padding:10px}`
   // ]
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'], 
+  encapsulation: ViewEncapsulation.None
 })
 // JS file
 export class AppComponent implements OnInit{

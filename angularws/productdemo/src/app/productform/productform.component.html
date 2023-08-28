@@ -1,0 +1,7 @@
+<h1>Add Product</h1>
+
+<form #form="ngForm" (submit)="insertProduct(form.value)">
+    Item name : <input type="text" name="name" ngModel/>
+    Price : <input type="text" name="price" ngModel/><br/>
+    <input type="submit"/>
+</form>
