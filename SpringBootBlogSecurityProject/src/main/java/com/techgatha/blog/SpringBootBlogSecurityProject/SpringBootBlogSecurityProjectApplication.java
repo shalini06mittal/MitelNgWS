@@ -11,6 +11,9 @@ import com.techgatha.blog.SpringBootBlogSecurityProject.entity.LoginUser;
 import com.techgatha.blog.SpringBootBlogSecurityProject.repo.BlogRepository;
 import com.techgatha.blog.SpringBootBlogSecurityProject.repo.LoginUserRepository;
 
+//java -jar SpringBootBlogSecurityProject-0.0.1-SNAPSHOT.jar
+//http://localhost:8080/swagger-ui.html
+
 @SpringBootApplication
 public class SpringBootBlogSecurityProjectApplication {
 
