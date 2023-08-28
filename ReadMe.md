@@ -13,3 +13,12 @@ java -jar java -jar SpringBootBlogSecurityProject-0.0.1-SNAPSHOT.jar
 
 4. To see the application on the browser, go to 
 http://localhost:8080/swagger-ui.html
+
+
+To run Angular blog project
+
+1. Download and run below command from within the blogproject folder
+npm i --save
+
+2. then start the server by
+npm start
