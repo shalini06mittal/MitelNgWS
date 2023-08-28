@@ -20,9 +20,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.techgatha.blog.SpringBootBlogSecurityProject.dto.BlogResponse;
 import com.techgatha.blog.SpringBootBlogSecurityProject.entity.Blog;
+import com.techgatha.blog.SpringBootBlogSecurityProject.entity.LoginUser;
 import com.techgatha.blog.SpringBootBlogSecurityProject.entity.Messages;
 import com.techgatha.blog.SpringBootBlogSecurityProject.entity.ResponsePage;
 import com.techgatha.blog.SpringBootBlogSecurityProject.repo.BlogRepository;
+import com.techgatha.blog.SpringBootBlogSecurityProject.repo.LoginUserRepository;
 
 
 
@@ -34,11 +36,14 @@ public class BlogRestController {
 	@Autowired
 	private BlogRepository repo;
 	
+	@Autowired
+    private LoginUserRepository userrepo;
+	
 	@GetMapping()
 	public List<BlogResponse> getAllBlogs(@RequestParam (required = false) String email)
 	{
 	    List<Blog> blogs = new ArrayList<>();
-		System.out.println("get all blogs");
+		System.out.println("get all blogs "+  email);
 		if(email == null)
 		    blogs = this.repo.findAll();
 		else
@@ -79,18 +84,21 @@ public class BlogRestController {
 	{
 		System.out.println("inserting "+blog+ " "+email);
 		try {
-		    blog.getUser().setEmail(email);
+		    LoginUser user = userrepo.findById(email).get();
+		    
+		    blog.setUser(user);
+		    System.out.println("set user");
 			Blog savedBlog = this.repo.save(blog);
 			System.out.println("saved blog "+savedBlog);
 		}
 		catch(Exception e)
 		{
 			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE)
-					.body(new ResponsePage(Messages.SUCCESS,"Could not insert"));
+					.body(new ResponsePage(Messages.FAILURE,"Could not insert"));
 		}
 			
 		return ResponseEntity.status(HttpStatus.CREATED)
-				.body(new ResponsePage(Messages.FAILURE,"Blog inserted successfully"));
+				.body(new ResponsePage(Messages.SUCCESS,"Blog inserted successfully"));
 	}
 	@DeleteMapping("/{id}")
 	public ResponseEntity<ResponsePage> deleteById(@PathVariable int id){
